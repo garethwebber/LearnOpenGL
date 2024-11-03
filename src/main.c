@@ -75,9 +75,12 @@ int main()
 	glGenBuffers(1, &VBO); 
 	float vertices[] = {
     	// positions         // colors
-     	0.5f, -0.5f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
-    	-0.5f, -0.5f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
-     	0.0f,  0.5f, 0.0f,  0.0f, 0.0f, 1.0f    // top 
+     	0.5f, -0.0f, 0.0f,  1.0f, 0.0f, 0.0f,   // bottom right
+    	-0.5f, -0.0f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom left
+     	0.0f,  0.75f, 0.0f,  0.0f, 0.0f, 1.0f,    // top 
+    	0.5f, 0.0f, 0.0f,  0.0f, 1.0f, 0.0f,   // bottom right
+    	-0.5f, 0.0f, 0.0f,  0.0f, 0.0f, 1.0f,   // bottom left
+     	0.0f,  -0.75f, 0.0f,  1.0f, 0.0f, 0.0f    // top 
 	}; 		
     glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
@@ -101,7 +104,7 @@ int main()
 
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
     	glfwSwapBuffers(window);
     	glfwPollEvents();    
