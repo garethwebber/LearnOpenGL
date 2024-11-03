@@ -15,7 +15,7 @@ include_directories(
         ${GLFW_INCLUDE_DIRS}
 )
 
-set(SOURCE_FILES main.c)
+set(SOURCE_FILES main.c glad.c)
 add_executable(LearnGLSL ${SOURCE_FILES})
 target_link_libraries(LearnGLSL ${OPENGL_LIBRARIES} ${GLFW_LIBRARIES})
 
