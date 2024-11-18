@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.25)
-project(LearnGL2D)
+project(LearnGLSL)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/../build")
 set(PROJECT_BINARY_DIR "${CMAKE_SOURCE_DIR}/../build")
@@ -15,14 +15,11 @@ include_directories(
         ${GLFW_INCLUDE_DIRS}
 )
 
-set(2D_FILES main-2d.c glad.c)
-set(3D_FILES main-3d.c glad.c)
-add_executable(LearnGL2D ${2D_FILES})
-add_executable(LearnGL3D ${3D_FILES})
-target_link_libraries(LearnGL2D ${OPENGL_LIBRARIES} ${GLFW_LIBRARIES})
-target_link_libraries(LearnGL3D ${OPENGL_LIBRARIES} ${GLFW_LIBRARIES})
+set(SOURCE_FILES main.c glad.c)
+add_executable(LearnGLSL ${SOURCE_FILES})
+target_link_libraries(LearnGLSL ${OPENGL_LIBRARIES} ${GLFW_LIBRARIES})
 
-add_custom_command(TARGET LearnGL2D  POST_BUILD
+add_custom_command(TARGET LearnGLSL  POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${CMAKE_SOURCE_DIR}/assets
         ${PROJECT_BINARY_DIR}
